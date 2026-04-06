@@ -249,6 +249,22 @@ body::before {
   flex-wrap: wrap;
 }
 
+.hero-figures {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
 .stat {
   padding: 0.5rem 1rem;
 }
@@ -896,18 +912,6 @@ section {
 .category-card:hover {
   transform: translateY(-4px);
   border-color: var(--accent-primary);
-}
-
-/* Category Topology Diagrams */
-.category-topo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0.75rem;
-}
-
-.category-topo svg {
-  width: 80px;
-  height: 80px;
 }
 
 .category-code {

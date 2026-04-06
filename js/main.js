@@ -62,49 +62,6 @@
     });
   });
 
-  // ---- Animated Stat Counters ----
-  var counterObserver = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounters();
-          counterObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  var statsSection = document.querySelector('.hero-stats');
-  if (statsSection) {
-    counterObserver.observe(statsSection);
-  }
-
-  function animateCounters() {
-    var counters = document.querySelectorAll('.stat-num[data-target]');
-    counters.forEach(function (counter) {
-      var target = parseInt(counter.getAttribute('data-target'), 10);
-      var duration = 1200;
-      var start = 0;
-      var startTime = null;
-
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = Math.min((timestamp - startTime) / duration, 1);
-        // Ease out cubic
-        var eased = 1 - Math.pow(1 - progress, 3);
-        counter.textContent = Math.floor(eased * target);
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          counter.textContent = target;
-        }
-      }
-
-      requestAnimationFrame(step);
-    });
-  }
-
   // ---- Demo Tab Switching ----
   var demoTabs = document.querySelectorAll('.demo-tab');
   var demoPanels = document.querySelectorAll('.demo-panel');
